@@ -1,0 +1,85 @@
+{
+    "text": "¿Es un animal doméstico?",
+    "yes": {
+        "text": "¿Maúlla?",
+        "yes": {
+            "text": "gato",
+            "yes": null,
+            "no": null
+        },
+        "no": {
+            "text": "¿Ladra?",
+            "yes": {
+                "text": "perro",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "¿Tiene plumas?",
+                "yes": {
+                    "text": "loro",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "¿Tiene orejas largas?",
+                    "yes": {
+                        "text": "conejo",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "hámster",
+                        "yes": null,
+                        "no": null
+                    }
+                }
+            }
+        }
+    },
+    "no": {
+        "text": "¿Vive en el agua?",
+        "yes": {
+            "text": "¿Es peligroso para humanos?",
+            "yes": {
+                "text": "tiburón",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "delfín",
+                "yes": null,
+                "no": null
+            }
+        },
+        "no": {
+            "text": "¿Tiene rayas?",
+            "yes": {
+                "text": "¿Es parecido a un caballo?",
+                "yes": {
+                    "text": "cebra",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "tigre",
+                    "yes": null,
+                    "no": null
+                }
+            },
+            "no": {
+                "text": "¿Tiene cuello muy largo?",
+                "yes": {
+                    "text": "jirafa",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "elefante",
+                    "yes": null,
+                    "no": null
+                }
+            }
+        }
+    }
+}

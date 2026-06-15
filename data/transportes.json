@@ -1,0 +1,77 @@
+{
+    "text": "¿Se mueve por tierra?",
+    "yes": {
+        "text": "¿Tiene motor?",
+        "yes": {
+            "text": "¿Transporta muchas personas?",
+            "yes": {
+                "text": "autobús",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "automóvil",
+                "yes": null,
+                "no": null
+            }
+        },
+        "no": {
+            "text": "¿Tiene dos ruedas?",
+            "yes": {
+                "text": "bicicleta",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "patineta",
+                "yes": null,
+                "no": null
+            }
+        }
+    },
+    "no": {
+        "text": "¿Se mueve por aire?",
+        "yes": {
+            "text": "¿Tiene alas fijas?",
+            "yes": {
+                "text": "avión",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "helicóptero",
+                "yes": null,
+                "no": null
+            }
+        },
+        "no": {
+            "text": "¿Se mueve por agua?",
+            "yes": {
+                "text": "¿Es grande para pasajeros?",
+                "yes": {
+                    "text": "barco",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "lancha",
+                    "yes": null,
+                    "no": null
+                }
+            },
+            "no": {
+                "text": "¿Viaja bajo tierra?",
+                "yes": {
+                    "text": "metro",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "teleférico",
+                    "yes": null,
+                    "no": null
+                }
+            }
+        }
+    }
+}

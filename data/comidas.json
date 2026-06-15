@@ -1,0 +1,77 @@
+{
+    "text": "¿Es dulce?",
+    "yes": {
+        "text": "¿Es frío?",
+        "yes": {
+            "text": "helado",
+            "yes": null,
+            "no": null
+        },
+        "no": {
+            "text": "¿Tiene chocolate?",
+            "yes": {
+                "text": "pastel de chocolate",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "¿Es una fruta?",
+                "yes": {
+                    "text": "manzana",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "galleta",
+                    "yes": null,
+                    "no": null
+                }
+            }
+        }
+    },
+    "no": {
+        "text": "¿Es comida rápida?",
+        "yes": {
+            "text": "¿Tiene pan?",
+            "yes": {
+                "text": "¿Tiene lechuga?",
+                "yes": {
+                    "text": "hamburguesa",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "Pizza",
+                    "yes": null,
+                    "no": null
+                }
+            },
+            "no": {
+                "text": "pizza",
+                "yes": null,
+                "no": null
+            }
+        },
+        "no": {
+            "text": "¿Es sopa o líquido?",
+            "yes": {
+                "text": "sopa",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "¿Tiene arroz?",
+                "yes": {
+                    "text": "sushi",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "ensalada",
+                    "yes": null,
+                    "no": null
+                }
+            }
+        }
+    }
+}

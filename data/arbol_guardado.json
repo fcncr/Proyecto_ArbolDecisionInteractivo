@@ -1,0 +1,37 @@
+{
+    "text": "¿Es un animal?",
+    "yes": {
+        "text": "¿Maulla?",
+        "yes": {
+            "text": "¿es salvaje?",
+            "yes": {
+                "text": "Lobo",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "Gato",
+                "yes": null,
+                "no": null
+            }
+        },
+        "no": {
+            "text": "perro",
+            "yes": null,
+            "no": null
+        }
+    },
+    "no": {
+        "text": "Sirve para hacer llamadas?",
+        "yes": {
+            "text": "Telefono",
+            "yes": null,
+            "no": null
+        },
+        "no": {
+            "text": "computadora",
+            "yes": null,
+            "no": null
+        }
+    }
+}

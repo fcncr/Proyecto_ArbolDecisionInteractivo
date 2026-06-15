@@ -1,0 +1,69 @@
+{
+    "text": "¿Es electrónico?",
+    "yes": {
+        "text": "¿Se usa para comunicarse?",
+        "yes": {
+            "text": "smartphone",
+            "yes": null,
+            "no": null
+        },
+        "no": {
+            "text": "¿Se usa para escribir documentos?",
+            "yes": {
+                "text": "computadora",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "¿Se usa para ver contenido?",
+                "yes": {
+                    "text": "televisor",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "consola de videojuegos",
+                    "yes": null,
+                    "no": null
+                }
+            }
+        }
+    },
+    "no": {
+        "text": "¿Se usa en la cocina?",
+        "yes": {
+            "text": "¿Sirve para cortar?",
+            "yes": {
+                "text": "cuchillo",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "sartén",
+                "yes": null,
+                "no": null
+            }
+        },
+        "no": {
+            "text": "¿Se usa para sentarse?",
+            "yes": {
+                "text": "silla",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "¿Se usa para abrir puertas?",
+                "yes": {
+                    "text": "llave",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "mochila",
+                    "yes": null,
+                    "no": null
+                }
+            }
+        }
+    }
+}

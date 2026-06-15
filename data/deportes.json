@@ -1,0 +1,77 @@
+{
+    "text": "¿Se juega con balón?",
+    "yes": {
+        "text": "¿Se juega principalmente con los pies?",
+        "yes": {
+            "text": "fútbol",
+            "yes": null,
+            "no": null
+        },
+        "no": {
+            "text": "¿Se usa una canasta?",
+            "yes": {
+                "text": "baloncesto",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "¿Se golpea con una raqueta?",
+                "yes": {
+                    "text": "tenis",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "voleibol",
+                    "yes": null,
+                    "no": null
+                }
+            }
+        }
+    },
+    "no": {
+        "text": "¿Se practica en agua?",
+        "yes": {
+            "text": "¿Implica nadar largas distancias?",
+            "yes": {
+                "text": "natación",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "surf",
+                "yes": null,
+                "no": null
+            }
+        },
+        "no": {
+            "text": "¿Se practica sobre nieve o hielo?",
+            "yes": {
+                "text": "¿Se usan esquís?",
+                "yes": {
+                    "text": "esquí",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "patinaje sobre hielo",
+                    "yes": null,
+                    "no": null
+                }
+            },
+            "no": {
+                "text": "¿Se practica con bicicleta?",
+                "yes": {
+                    "text": "ciclismo",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "atletismo",
+                    "yes": null,
+                    "no": null
+                }
+            }
+        }
+    }
+}
