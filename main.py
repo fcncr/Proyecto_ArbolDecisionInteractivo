@@ -21,6 +21,46 @@ from tkinter import filedialog
 DATA_FOLDER = "data"
 DEFAULT_TREE_FILE = os.path.join(DATA_FOLDER, "arbol_guardado.json")
 
+# =========================
+# ESTILOS VISUALES
+# =========================
+
+BACKGROUND_COLOR = "#100B24"
+CARD_COLOR = "#201238"
+CARD_DARK_COLOR = "#160C2B"
+CARD_LIGHT_COLOR = "#2B1A4A"
+
+PRIMARY_COLOR = "#F4C542"
+PRIMARY_HOVER_COLOR = "#DFAE24"
+
+SUCCESS_COLOR = "#22C55E"
+SUCCESS_HOVER_COLOR = "#16A34A"
+
+SECONDARY_COLOR = "#7C3AED"
+SECONDARY_HOVER_COLOR = "#6D28D9"
+
+DANGER_COLOR = "#EF4444"
+DANGER_HOVER_COLOR = "#DC2626"
+
+NEUTRAL_COLOR = "#3B2B5B"
+NEUTRAL_HOVER_COLOR = "#4C3A72"
+
+TEXT_COLOR = "#F8FAFC"
+SECONDARY_TEXT_COLOR = "#C9BFE8"
+MUTED_TEXT_COLOR = "#9A8FBD"
+
+INPUT_COLOR = "#F8F5EF"
+INPUT_TEXT_COLOR = "#1C1630"
+BORDER_COLOR = "#59487A"
+
+FONT_TITLE = ("Arial", 27, "bold")
+FONT_SECTION_TITLE = ("Arial", 21, "bold")
+FONT_SUBTITLE = ("Arial", 12)
+FONT_LABEL = ("Arial", 12, "bold")
+FONT_TEXT = ("Arial", 11)
+FONT_QUESTION = ("Arial", 21, "bold")
+FONT_BUTTON = ("Arial", 12, "bold")
+FONT_SMALL = ("Arial", 10)
 
 # =========================
 # MODELO: NODO DEL ÁRBOL
@@ -412,7 +452,7 @@ class AppWindow(tk.Tk):
 
     # Inicializa la ventana principal de la aplicación.
     # Entradas: ninguna.
-    # Salidas: ninguna; crea la ventana y muestra pantalla inicial.
+    # Salidas: ninguna; crea la ventana y muestra la pantalla inicial.
     def __init__(self):
         super().__init__()
 
@@ -421,64 +461,193 @@ class AppWindow(tk.Tk):
         self.last_wrong_answer = ""
 
         self.title("Árbol de Decisión Interactivo")
-        self.geometry("650x500")
+        self.geometry("860x850")
         self.resizable(False, False)
+        self.configure(bg=BACKGROUND_COLOR)
 
         self.build_home_screen()
 
-    # Elimina todos los elementos visuales actuales de la ventana.
+    # Elimina todos los elementos actuales de la ventana.
     # Entradas: ninguna.
     # Salidas: ninguna; limpia la interfaz.
     def clear_window(self):
         for widget in self.winfo_children():
             widget.destroy()
 
+    # Crea la tarjeta principal de cada pantalla.
+    # Entradas: ancho y alto opcionales de la tarjeta.
+    # Salidas: frame central con borde y fondo configurado.
+    def create_card(self, width=790, height=635):
+        card = tk.Frame(
+            self,
+            bg=CARD_COLOR,
+            width=width,
+            height=height,
+            highlightbackground=BORDER_COLOR,
+            highlightthickness=2
+        )
+        card.pack_propagate(False)
+        card.pack(expand=True)
+
+        return card
+
+    # Crea el encabezado principal de la aplicación.
+    # Entradas: contenedor donde se agregará el encabezado.
+    # Salidas: ninguna; agrega título y línea decorativa.
+    def create_header(self, parent):
+        header = tk.Frame(parent, bg=CARD_COLOR)
+        header.pack(fill="x", pady=(22, 12))
+
+        title = tk.Label(
+            header,
+            text="Genio Adivinador",
+            font=FONT_TITLE,
+            bg=CARD_COLOR,
+            fg=TEXT_COLOR
+        )
+        title.pack()
+
+        divider_frame = tk.Frame(header, bg=CARD_COLOR)
+        divider_frame.pack(pady=(12, 0))
+
+        left_line = tk.Frame(divider_frame, bg=PRIMARY_COLOR, width=110, height=2)
+        left_line.grid(row=0, column=0, padx=12)
+
+        center_mark = tk.Label(
+            divider_frame,
+            text="◇",
+            font=("Arial", 16, "bold"),
+            bg=CARD_COLOR,
+            fg=PRIMARY_COLOR
+        )
+        center_mark.grid(row=0, column=1)
+
+        right_line = tk.Frame(divider_frame, bg=PRIMARY_COLOR, width=110, height=2)
+        right_line.grid(row=0, column=2, padx=12)
+
+    # Crea una etiqueta reutilizable para la interfaz.
+    # Entradas: contenedor, texto, fuente, color y separación vertical.
+    # Salidas: objeto Label agregado al contenedor.
+    def create_label(self, parent, text, font, color=TEXT_COLOR, pady=5):
+        label = tk.Label(
+            parent,
+            text=text,
+            font=font,
+            bg=CARD_COLOR,
+            fg=color,
+            wraplength=640,
+            justify="center"
+        )
+        label.pack(pady=pady)
+
+        return label
+
+    # Crea un botón reutilizable con estilo visual.
+    # Entradas: contenedor, texto, comando, color, color activo, color de texto y ancho.
+    # Salidas: objeto Button agregado al contenedor.
+    def create_button(self, parent, text, command, bg_color, active_color, fg_color=TEXT_COLOR, width=24):
+        button = tk.Button(
+            parent,
+            text=text,
+            command=command,
+            width=width,
+            height=2,
+            bg=bg_color,
+            fg=fg_color,
+            activebackground=active_color,
+            activeforeground=fg_color,
+            font=FONT_BUTTON,
+            relief="flat",
+            cursor="hand2",
+            bd=0,
+            pady=4
+        )
+        button.pack(pady=8)
+
+        return button
+
+    # Crea un campo de entrada con etiqueta.
+    # Entradas: contenedor y texto de la etiqueta.
+    # Salidas: objeto Entry creado para capturar información.
+    def create_input_field(self, parent, label_text):
+        label = tk.Label(
+            parent,
+            text=label_text,
+            font=FONT_LABEL,
+            bg=CARD_COLOR,
+            fg=TEXT_COLOR,
+            anchor="w"
+        )
+        label.pack(fill="x", padx=68, pady=(14, 6))
+
+        entry = tk.Entry(
+            parent,
+            width=58,
+            font=FONT_TEXT,
+            bg=INPUT_COLOR,
+            fg=INPUT_TEXT_COLOR,
+            relief="flat",
+            insertbackground=INPUT_TEXT_COLOR
+        )
+        entry.pack(ipady=9)
+
+        return entry
+
     # Construye la pantalla inicial de la aplicación.
     # Entradas: ninguna.
-    # Salidas: ninguna; muestra título, instrucciones y botones principales.
+    # Salidas: ninguna; muestra título, descripción mínima y botones principales.
+    # Construye la pantalla inicial de la aplicación.
+    # Entradas: ninguna.
+    # Salidas: ninguna; muestra título, descripción mínima y botones principales.
     def build_home_screen(self):
         self.clear_window()
 
-        title_label = tk.Label(
-            self,
-            text="Adivina en qué estoy pensando",
-            font=("Arial", 20, "bold")
-        )
-        title_label.pack(pady=25)
+        card = self.create_card()
+        self.create_header(card)
 
-        instructions_label = tk.Label(
-            self,
-            text="Piensa en un elemento y responde únicamente con Sí o No.\n"
-                 "El sistema intentará adivinarlo usando un árbol de decisión.\n"
-                 "Si falla, puedes enseñarle una nueva respuesta.",
-            font=("Arial", 12),
-            justify="center"
-        )
-        instructions_label.pack(pady=15)
+        content = tk.Frame(card, bg=CARD_COLOR)
+        content.pack(expand=True)
 
-        start_button = tk.Button(
-            self,
-            text="Iniciar partida",
-            width=28,
-            command=self.start_game
+        self.create_label(
+            content,
+            "Piensa en un elemento y responde con Sí o No.",
+            FONT_SUBTITLE,
+            SECONDARY_TEXT_COLOR,
+            16
         )
-        start_button.pack(pady=8)
 
-        load_button = tk.Button(
-            self,
-            text="Cargar árbol desde archivo",
-            width=28,
-            command=self.load_tree_file
-        )
-        load_button.pack(pady=8)
+        buttons_frame = tk.Frame(content, bg=CARD_COLOR)
+        buttons_frame.pack(pady=22)
 
-        exit_button = tk.Button(
-            self,
-            text="Salir",
-            width=28,
-            command=self.destroy
+        self.create_button(
+            buttons_frame,
+            "Iniciar partida",
+            self.start_game,
+            SUCCESS_COLOR,
+            SUCCESS_HOVER_COLOR,
+            "#052E16",
+            28
         )
-        exit_button.pack(pady=8)
+
+        self.create_button(
+            buttons_frame,
+            "Cargar árbol desde archivo",
+            self.load_tree_file,
+            SECONDARY_COLOR,
+            SECONDARY_HOVER_COLOR,
+            TEXT_COLOR,
+            28
+        )
+
+        self.create_button(
+            buttons_frame,
+            "Salir",
+            self.destroy,
+            DANGER_COLOR,
+            DANGER_HOVER_COLOR,
+            TEXT_COLOR,
+            28
+        )
 
     # Permite seleccionar un archivo JSON y cargar un árbol.
     # Entradas: ninguna.
@@ -508,67 +677,112 @@ class AppWindow(tk.Tk):
         self.game_mode = "question"
         self.build_game_screen()
 
-    # Construye la pantalla principal de preguntas y respuestas.
+    # Construye la pantalla principal de preguntas.
     # Entradas: ninguna.
-    # Salidas: ninguna; muestra el texto actual y botones Sí/No.
+    # Salidas: ninguna; muestra pregunta actual y botones de respuesta.
     def build_game_screen(self):
         self.clear_window()
 
+        card = self.create_card()
+        self.create_header(card)
+
+        body = tk.Frame(card, bg=CARD_COLOR)
+        body.pack(expand=True, fill="both")
+
         self.status_label = tk.Label(
-            self,
-            text="Responde la siguiente pregunta:",
-            font=("Arial", 12)
+            body,
+            text="",
+            font=FONT_SUBTITLE,
+            bg=CARD_COLOR,
+            fg=SECONDARY_TEXT_COLOR
         )
-        self.status_label.pack(pady=20)
+        self.status_label.pack(pady=(16, 8))
+
+        question_box = tk.Frame(
+            body,
+            bg=CARD_DARK_COLOR,
+            highlightbackground=PRIMARY_COLOR,
+            highlightthickness=1
+        )
+        question_box.pack(fill="x", padx=62, pady=20)
 
         self.question_label = tk.Label(
-            self,
+            question_box,
             text="",
-            font=("Arial", 18, "bold"),
-            wraplength=560,
-            justify="center"
+            font=FONT_QUESTION,
+            bg=CARD_DARK_COLOR,
+            fg=TEXT_COLOR,
+            wraplength=590,
+            justify="center",
+            pady=34
         )
-        self.question_label.pack(pady=25)
+        self.question_label.pack(fill="x")
+
+        answer_frame = tk.Frame(body, bg=CARD_COLOR)
+        answer_frame.pack(pady=18)
 
         yes_button = tk.Button(
-            self,
+            answer_frame,
             text="Sí",
             width=18,
-            command=self.answer_yes_click
+            height=2,
+            command=self.answer_yes_click,
+            bg=PRIMARY_COLOR,
+            fg="#1C1630",
+            activebackground=PRIMARY_HOVER_COLOR,
+            activeforeground="#1C1630",
+            font=FONT_BUTTON,
+            relief="flat",
+            cursor="hand2",
+            bd=0
         )
-        yes_button.pack(pady=5)
+        yes_button.grid(row=0, column=0, padx=12)
 
         no_button = tk.Button(
-            self,
+            answer_frame,
             text="No",
             width=18,
-            command=self.answer_no_click
+            height=2,
+            command=self.answer_no_click,
+            bg=NEUTRAL_COLOR,
+            fg=TEXT_COLOR,
+            activebackground=NEUTRAL_HOVER_COLOR,
+            activeforeground=TEXT_COLOR,
+            font=FONT_BUTTON,
+            relief="flat",
+            cursor="hand2",
+            bd=0
         )
-        no_button.pack(pady=5)
+        no_button.grid(row=0, column=1, padx=12)
 
-        home_button = tk.Button(
-            self,
-            text="Volver al inicio",
-            width=18,
-            command=self.build_home_screen
+        bottom_frame = tk.Frame(body, bg=CARD_COLOR)
+        bottom_frame.pack(pady=12)
+
+        self.create_button(
+            bottom_frame,
+            "Volver al inicio",
+            self.build_home_screen,
+            NEUTRAL_COLOR,
+            NEUTRAL_HOVER_COLOR,
+            TEXT_COLOR,
+            22
         )
-        home_button.pack(pady=20)
 
         self.update_game_text()
 
-    # Actualiza el texto mostrado según el nodo actual del árbol.
+    # Actualiza el texto mostrado según el nodo actual.
     # Entradas: ninguna.
-    # Salidas: ninguna; actualiza etiquetas y modo de juego.
+    # Salidas: ninguna; cambia entre modo pregunta y modo adivinanza.
     def update_game_text(self):
         current_text = self.controller.get_current_text()
 
         if self.controller.is_current_leaf():
             self.game_mode = "guess"
-            self.status_label.config(text="Creo que ya sé la respuesta:")
+            self.status_label.config(text="Creo que ya sé la respuesta")
             self.question_label.config(text=f"¿Estabas pensando en {current_text}?")
         else:
             self.game_mode = "question"
-            self.status_label.config(text="Responde la siguiente pregunta:")
+            self.status_label.config(text="Pregunta")
             self.question_label.config(text=current_text)
 
     # Procesa el clic del botón Sí.
@@ -585,115 +799,188 @@ class AppWindow(tk.Tk):
 
     # Decide cómo procesar la respuesta según el modo actual.
     # Entradas: respuesta normalizada "si" o "no".
-    # Salidas: ninguna; avanza, gana o muestra formulario de aprendizaje.
+    # Salidas: ninguna; avanza en el juego o finaliza la adivinanza.
     def process_answer(self, answer):
         if self.game_mode == "question":
             self.handle_question_answer(answer)
         elif self.game_mode == "guess":
             self.handle_guess_answer(answer)
 
-    # Procesa una respuesta dada a un nodo de pregunta.
+    # Procesa una respuesta dada a una pregunta del árbol.
     # Entradas: respuesta normalizada "si" o "no".
-    # Salidas: ninguna; avanza en el árbol y actualiza la pantalla.
+    # Salidas: ninguna; avanza por el árbol y actualiza la pantalla.
     def handle_question_answer(self, answer):
         self.controller.answer_question(answer)
         self.update_game_text()
 
     # Procesa una respuesta dada a una adivinanza final.
     # Entradas: respuesta normalizada "si" o "no".
-    # Salidas: ninguna; muestra victoria o formulario de aprendizaje.
+    # Salidas: ninguna; muestra pantalla final o formulario de aprendizaje.
     def handle_guess_answer(self, answer):
         if answer == "si":
-            messagebox.showinfo("Resultado", "¡Gané! Adiviné correctamente.")
-            self.show_end_options("¡Gané! Adiviné correctamente.")
+            self.show_end_options("Adiviné correctamente")
         else:
             self.last_wrong_answer = self.controller.get_current_text()
             self.build_learning_screen()
 
-    # Construye el formulario de aprendizaje cuando el sistema falla.
+     # Construye la pantalla de aprendizaje.
     # Entradas: ninguna.
-    # Salidas: ninguna; muestra campos para enseñar una nueva respuesta.
+    # Salidas: ninguna; muestra el formulario para agregar una nueva respuesta.
     def build_learning_screen(self):
         self.clear_window()
 
+        card = self.create_card(height=650)
+        self.create_header(card)
+
+        body = tk.Frame(card, bg=CARD_COLOR)
+        body.pack(fill="both", expand=True, padx=30)
+
         title_label = tk.Label(
-            self,
-            text="Ayúdame a aprender",
-            font=("Arial", 18, "bold")
+            body,
+            text="Nuevo aprendizaje",
+            font=FONT_SECTION_TITLE,
+            bg=CARD_COLOR,
+            fg=PRIMARY_COLOR
         )
-        title_label.pack(pady=20)
+        title_label.pack(pady=(4, 5))
 
-        info_label = tk.Label(
-            self,
-            text=f"No logré adivinar. Mi respuesta incorrecta fue: {self.last_wrong_answer}",
-            font=("Arial", 11),
-            wraplength=560,
-            justify="center"
+        underline = tk.Frame(body, bg=PRIMARY_COLOR, width=70, height=3)
+        underline.pack(pady=(0, 10))
+
+        previous_frame = tk.Frame(
+            body,
+            bg=CARD_LIGHT_COLOR,
+            highlightbackground=BORDER_COLOR,
+            highlightthickness=1
         )
-        info_label.pack(pady=10)
+        previous_frame.pack(pady=(0, 10))
 
-        correct_label = tk.Label(
-            self,
-            text="¿Cuál era la respuesta correcta?",
-            font=("Arial", 11)
+        previous_label = tk.Label(
+            previous_frame,
+            text=f"Respuesta anterior: {self.last_wrong_answer}",
+            font=FONT_SUBTITLE,
+            bg=CARD_LIGHT_COLOR,
+            fg=SECONDARY_TEXT_COLOR,
+            padx=20,
+            pady=8
         )
-        correct_label.pack(pady=5)
+        previous_label.pack()
 
-        self.correct_answer_entry = tk.Entry(self, width=50)
-        self.correct_answer_entry.pack(pady=5)
+        form_frame = tk.Frame(body, bg=CARD_COLOR)
+        form_frame.pack(fill="x")
 
-        question_label = tk.Label(
-            self,
-            text="Escribe una pregunta que diferencie ambas respuestas:",
-            font=("Arial", 11)
+        self.correct_answer_entry = self.create_input_field(
+            form_frame,
+            "Respuesta correcta"
         )
-        question_label.pack(pady=5)
 
-        self.new_question_entry = tk.Entry(self, width=50)
-        self.new_question_entry.pack(pady=5)
+        self.new_question_entry = self.create_input_field(
+            form_frame,
+            "Pregunta diferenciadora"
+        )
 
         option_label = tk.Label(
-            self,
-            text="Para la respuesta correcta, ¿la respuesta a esa pregunta sería Sí o No?",
-            font=("Arial", 11),
-            wraplength=560,
-            justify="center"
+            form_frame,
+            text="Para la respuesta correcta, la respuesta a esa pregunta es:",
+            font=FONT_LABEL,
+            bg=CARD_COLOR,
+            fg=TEXT_COLOR,
+            anchor="w"
         )
-        option_label.pack(pady=10)
+        option_label.pack(fill="x", padx=68, pady=(14, 8))
 
         self.answer_for_correct_var = tk.StringVar(value="si")
 
-        yes_radio = tk.Radiobutton(
-            self,
+        options_frame = tk.Frame(form_frame, bg=CARD_COLOR)
+        options_frame.pack(fill="x", padx=68, pady=(0, 12))
+
+        yes_option = tk.Radiobutton(
+            options_frame,
             text="Sí",
             variable=self.answer_for_correct_var,
-            value="si"
+            value="si",
+            font=FONT_BUTTON,
+            bg=CARD_DARK_COLOR,
+            fg=PRIMARY_COLOR,
+            selectcolor=CARD_DARK_COLOR,
+            activebackground=CARD_DARK_COLOR,
+            activeforeground=PRIMARY_COLOR,
+            width=20,
+            height=2,
+            indicatoron=True,
+            relief="flat"
         )
-        yes_radio.pack()
+        yes_option.grid(row=0, column=0, sticky="ew", padx=(0, 6))
 
-        no_radio = tk.Radiobutton(
-            self,
+        no_option = tk.Radiobutton(
+            options_frame,
             text="No",
             variable=self.answer_for_correct_var,
-            value="no"
+            value="no",
+            font=FONT_BUTTON,
+            bg=CARD_DARK_COLOR,
+            fg=TEXT_COLOR,
+            selectcolor=CARD_DARK_COLOR,
+            activebackground=CARD_DARK_COLOR,
+            activeforeground=TEXT_COLOR,
+            width=20,
+            height=2,
+            indicatoron=True,
+            relief="flat"
         )
-        no_radio.pack()
+        no_option.grid(row=0, column=1, sticky="ew", padx=(6, 0))
 
-        learn_button = tk.Button(
-            self,
-            text="Guardar aprendizaje",
-            width=25,
-            command=self.save_learning_click
+        options_frame.columnconfigure(0, weight=1)
+        options_frame.columnconfigure(1, weight=1)
+
+        footer = tk.Frame(
+            card,
+            bg=CARD_DARK_COLOR,
+            height=96,
+            highlightbackground=BORDER_COLOR,
+            highlightthickness=1
         )
-        learn_button.pack(pady=15)
+        footer.pack_propagate(False)
+        footer.pack(side="bottom", fill="x")
+
+        actions_frame = tk.Frame(footer, bg=CARD_DARK_COLOR)
+        actions_frame.pack(expand=True)
 
         cancel_button = tk.Button(
-            self,
-            text="Cancelar y volver al inicio",
-            width=25,
-            command=self.build_home_screen
+            actions_frame,
+            text="Cancelar",
+            width=22,
+            height=2,
+            command=self.build_home_screen,
+            bg=NEUTRAL_COLOR,
+            fg=TEXT_COLOR,
+            activebackground=NEUTRAL_HOVER_COLOR,
+            activeforeground=TEXT_COLOR,
+            font=FONT_BUTTON,
+            relief="flat",
+            cursor="hand2",
+            bd=0,
+            pady=6
         )
-        cancel_button.pack(pady=5)
+        cancel_button.grid(row=0, column=0, padx=12)
+
+        save_button = tk.Button(
+            actions_frame,
+            text="Guardar aprendizaje",
+            width=26,
+            height=2,
+            command=self.save_learning_click,
+            bg=PRIMARY_COLOR,
+            fg="#1C1630",
+            activebackground=PRIMARY_HOVER_COLOR,
+            activeforeground="#1C1630",
+            font=FONT_BUTTON,
+            relief="flat",
+            cursor="hand2",
+            bd=0,
+            pady=6
+        )
+        save_button.grid(row=0, column=1, padx=12)
 
     # Guarda la información ingresada en el formulario de aprendizaje.
     # Entradas: ninguna.
@@ -709,58 +996,95 @@ class AppWindow(tk.Tk):
             if saved:
                 messagebox.showinfo(
                     "Aprendizaje guardado",
-                    "¡Gracias! Aprendí algo nuevo y el árbol se guardó correctamente."
+                    "Aprendizaje guardado correctamente."
                 )
             else:
                 messagebox.showwarning(
                     "Aprendizaje parcial",
-                    "Aprendí la nueva respuesta, pero ocurrió un error al guardar el archivo."
+                    "El árbol aprendió, pero ocurrió un error al guardar."
                 )
 
-            self.show_end_options("Aprendizaje completado.")
+            self.show_end_options("Aprendizaje guardado")
 
         except ValueError as error:
             messagebox.showerror("Datos inválidos", str(error))
 
     # Muestra opciones después de ganar o aprender.
-    # Entradas: mensaje que se mostrará como resultado final.
-    # Salidas: ninguna; muestra botones para nueva partida, inicio o salir.
+    # Entradas: mensaje final que se mostrará.
+    # Salidas: ninguna; muestra opciones para continuar o salir.
     def show_end_options(self, result_message):
         self.clear_window()
 
-        result_label = tk.Label(
-            self,
-            text=result_message,
-            font=("Arial", 18, "bold"),
-            wraplength=560,
-            justify="center"
+        card = self.create_card()
+        self.create_header(card)
+
+        content = tk.Frame(card, bg=CARD_COLOR)
+        content.pack(expand=True)
+
+        self.create_label(
+            content,
+            result_message,
+            FONT_SECTION_TITLE,
+            PRIMARY_COLOR,
+            20
         )
-        result_label.pack(pady=40)
+
+        buttons_frame = tk.Frame(content, bg=CARD_COLOR)
+        buttons_frame.pack(pady=28)
 
         new_game_button = tk.Button(
-            self,
+            buttons_frame,
             text="Nueva partida",
-            width=22,
-            command=self.start_game
+            width=28,
+            height=2,
+            command=self.start_game,
+            bg=SUCCESS_COLOR,
+            fg="#052E16",
+            activebackground=SUCCESS_HOVER_COLOR,
+            activeforeground="#052E16",
+            font=FONT_BUTTON,
+            relief="flat",
+            cursor="hand2",
+            bd=0,
+            pady=5
         )
-        new_game_button.pack(pady=10)
+        new_game_button.pack(pady=9)
 
         home_button = tk.Button(
-            self,
+            buttons_frame,
             text="Volver al inicio",
-            width=22,
-            command=self.build_home_screen
+            width=28,
+            height=2,
+            command=self.build_home_screen,
+            bg=SECONDARY_COLOR,
+            fg=TEXT_COLOR,
+            activebackground=SECONDARY_HOVER_COLOR,
+            activeforeground=TEXT_COLOR,
+            font=FONT_BUTTON,
+            relief="flat",
+            cursor="hand2",
+            bd=0,
+            pady=5
         )
-        home_button.pack(pady=10)
+        home_button.pack(pady=9)
 
         exit_button = tk.Button(
-            self,
+            buttons_frame,
             text="Salir",
-            width=22,
-            command=self.destroy
+            width=28,
+            height=2,
+            command=self.destroy,
+            bg=DANGER_COLOR,
+            fg=TEXT_COLOR,
+            activebackground=DANGER_HOVER_COLOR,
+            activeforeground=TEXT_COLOR,
+            font=FONT_BUTTON,
+            relief="flat",
+            cursor="hand2",
+            bd=0,
+            pady=5
         )
-        exit_button.pack(pady=10)
-
+        exit_button.pack(pady=9)
 
 # =========================
 # MAIN
