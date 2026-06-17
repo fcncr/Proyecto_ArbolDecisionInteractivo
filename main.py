@@ -461,7 +461,7 @@ class AppWindow(tk.Tk):
         self.last_wrong_answer = ""
 
         self.title("Árbol de Decisión Interactivo")
-        self.geometry("860x850")
+        self.geometry("860x700")
         self.resizable(False, False)
         self.configure(bg=BACKGROUND_COLOR)
 
@@ -608,14 +608,6 @@ class AppWindow(tk.Tk):
         content = tk.Frame(card, bg=CARD_COLOR)
         content.pack(expand=True)
 
-        self.create_label(
-            content,
-            "Piensa en un elemento y responde con Sí o No.",
-            FONT_SUBTITLE,
-            SECONDARY_TEXT_COLOR,
-            16
-        )
-
         buttons_frame = tk.Frame(content, bg=CARD_COLOR)
         buttons_frame.pack(pady=22)
 
@@ -626,7 +618,7 @@ class AppWindow(tk.Tk):
             SUCCESS_COLOR,
             SUCCESS_HOVER_COLOR,
             "#052E16",
-            28
+            36
         )
 
         self.create_button(
@@ -636,7 +628,7 @@ class AppWindow(tk.Tk):
             SECONDARY_COLOR,
             SECONDARY_HOVER_COLOR,
             TEXT_COLOR,
-            28
+            36
         )
 
         self.create_button(
@@ -646,7 +638,7 @@ class AppWindow(tk.Tk):
             DANGER_COLOR,
             DANGER_HOVER_COLOR,
             TEXT_COLOR,
-            28
+            36
         )
 
     # Permite seleccionar un archivo JSON y cargar un árbol.
@@ -727,10 +719,10 @@ class AppWindow(tk.Tk):
             width=18,
             height=2,
             command=self.answer_yes_click,
-            bg=PRIMARY_COLOR,
+            bg="#22C55E",
             fg="#1C1630",
-            activebackground=PRIMARY_HOVER_COLOR,
-            activeforeground="#1C1630",
+            activebackground=NEUTRAL_HOVER_COLOR,
+            activeforeground=TEXT_COLOR,
             font=FONT_BUTTON,
             relief="flat",
             cursor="hand2",
@@ -744,7 +736,7 @@ class AppWindow(tk.Tk):
             width=18,
             height=2,
             command=self.answer_no_click,
-            bg=NEUTRAL_COLOR,
+            bg="#EF4444",
             fg=TEXT_COLOR,
             activebackground=NEUTRAL_HOVER_COLOR,
             activeforeground=TEXT_COLOR,

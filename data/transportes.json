@@ -39,9 +39,17 @@
                 "no": null
             },
             "no": {
-                "text": "helicóptero",
-                "yes": null,
-                "no": null
+                "text": "¿Usa calor o fuego para funcionar?",
+                "yes": {
+                    "text": "Globo aerostatico",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "helicóptero",
+                    "yes": null,
+                    "no": null
+                }
             }
         },
         "no": {

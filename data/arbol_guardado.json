@@ -29,9 +29,17 @@
             "no": null
         },
         "no": {
-            "text": "computadora",
-            "yes": null,
-            "no": null
+            "text": "¿Es barato?",
+            "yes": {
+                "text": "computadora",
+                "yes": null,
+                "no": null
+            },
+            "no": {
+                "text": "Servidor",
+                "yes": null,
+                "no": null
+            }
         }
     }
 }
