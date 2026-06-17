@@ -306,9 +306,17 @@
                     "yes": {
                         "text": "¿Cabe en una mano?",
                         "yes": {
-                            "text": "smartphone",
-                            "yes": null,
-                            "no": null
+                            "text": "¿Es de gran tamaño?",
+                            "yes": {
+                                "text": "Tablet",
+                                "yes": null,
+                                "no": null
+                            },
+                            "no": {
+                                "text": "smartphone",
+                                "yes": null,
+                                "no": null
+                            }
                         },
                         "no": {
                             "text": "radio",

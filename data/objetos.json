@@ -59,9 +59,17 @@
                     "no": null
                 },
                 "no": {
-                    "text": "mochila",
-                    "yes": null,
-                    "no": null
+                    "text": "¿Sirve para iluminar?",
+                    "yes": {
+                        "text": "linterna",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "mochila",
+                        "yes": null,
+                        "no": null
+                    }
                 }
             }
         }
