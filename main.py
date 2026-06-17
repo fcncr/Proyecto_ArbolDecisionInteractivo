@@ -291,6 +291,8 @@ class TreeStorage:
 
             with open(self.file_path, "r", encoding="utf-8") as file:
                 tree_data = json.load(file)
+                if tree_data is None:
+                    raise ValueError("El archivo no contiene un árbol válido.")
 
             root = dict_to_node(tree_data)
 
@@ -583,9 +585,6 @@ class AppWindow(tk.Tk):
     # Construye la pantalla inicial de la aplicación.
     # Entradas: ninguna.
     # Salidas: ninguna; muestra título, descripción mínima y botones principales.
-    # Construye la pantalla inicial de la aplicación.
-    # Entradas: ninguna.
-    # Salidas: ninguna; muestra título, descripción mínima y botones principales.
     def build_home_screen(self):
         self.clear_window()
 
@@ -594,6 +593,14 @@ class AppWindow(tk.Tk):
 
         content = tk.Frame(card, bg=CARD_COLOR)
         content.pack(expand=True)
+
+        self.create_label(
+            content,
+            "Piensa en un elemento y responde únicamente Sí o No. El sistema intentará adivinarlo y aprenderá si falla.",
+            FONT_SUBTITLE,
+            SECONDARY_TEXT_COLOR,
+            12
+        )
 
         buttons_frame = tk.Frame(content, bg=CARD_COLOR)
         buttons_frame.pack(pady=22)

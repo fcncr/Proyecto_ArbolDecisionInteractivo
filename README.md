@@ -25,7 +25,7 @@ Si la aplicación no logra adivinar correctamente, permite que el usuario agregu
 * `data/comidas.json`: árbol de ejemplo con al menos 10 respuestas.
 * `data/deportes.json`: árbol de ejemplo con al menos 10 respuestas.
 * `data/transportes.json`: árbol de ejemplo con al menos 10 respuestas.
-* `docs/diseno_poo.md`: documento de diseño orientado a objetos.
+* `docs/diseno_poo.txt`: documento de diseño orientado a objetos.
 
 ## Cómo ejecutar el proyecto
 
