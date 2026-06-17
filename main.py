@@ -6,25 +6,21 @@
 # =========================
 # IMPORTS
 # =========================
-
 import os
 import json
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import filedialog
 
-
 # =========================
 # CONSTANTES DEL PROYECTO
 # =========================
-
 DATA_FOLDER = "data"
 DEFAULT_TREE_FILE = os.path.join(DATA_FOLDER, "arbol_guardado.json")
 
 # =========================
 # ESTILOS VISUALES
 # =========================
-
 BACKGROUND_COLOR = "#100B24"
 CARD_COLOR = "#201238"
 CARD_DARK_COLOR = "#160C2B"
@@ -65,7 +61,6 @@ FONT_SMALL = ("Arial", 10)
 # =========================
 # MODELO: NODO DEL ÁRBOL
 # =========================
-
 class DecisionNode:
 
     # Inicializa un nodo del árbol de decisión.
@@ -82,11 +77,9 @@ class DecisionNode:
     def is_leaf(self):
         return self.yes_child is None and self.no_child is None
 
-
 # =========================
 # LÓGICA DEL ÁRBOL
 # =========================
-
 class DecisionTree:
 
     # Inicializa el árbol de decisión con una raíz.
@@ -131,7 +124,6 @@ class DecisionTree:
         if self.current_node.no_child is not None:
             self.current_node = self.current_node.no_child
             return True
-
         return False
 
     # Reemplaza una respuesta incorrecta por una nueva pregunta.
@@ -170,8 +162,7 @@ class DecisionTree:
     # Salidas: diccionario que representa el árbol completo.
     def to_dict(self):
         return self.node_to_dict(self.root)
-
-
+    
 # =========================
 # CONVERSIÓN DE DICCIONARIO A ÁRBOL
 # =========================
@@ -211,7 +202,6 @@ def dict_to_node(data):
 
     return DecisionNode(text.strip(), yes_child, no_child)
 
-
 # =========================
 # CREACIÓN DEL ÁRBOL INICIAL
 # =========================
@@ -232,7 +222,6 @@ def create_default_tree():
 # =========================
 # MANEJO DE ARCHIVOS
 # =========================
-
 class TreeStorage:
 
     # Inicializa el manejador de archivos del árbol.
@@ -341,7 +330,6 @@ class TreeStorage:
 # =========================
 # CONTROLADOR DEL JUEGO
 # =========================
-
 class GameController:
 
     # Inicializa el controlador principal del juego.
@@ -444,10 +432,9 @@ class GameController:
         return self.storage.last_load_message
 
 
-# =========================
+# -------------------
 # INTERFAZ GRÁFICA
-# =========================
-
+# ------------------
 class AppWindow(tk.Tk):
 
     # Inicializa la ventana principal de la aplicación.
@@ -815,7 +802,7 @@ class AppWindow(tk.Tk):
             self.last_wrong_answer = self.controller.get_current_text()
             self.build_learning_screen()
 
-     # Construye la pantalla de aprendizaje.
+    # Construye la pantalla de aprendizaje.
     # Entradas: ninguna.
     # Salidas: ninguna; muestra el formulario para agregar una nueva respuesta.
     def build_learning_screen(self):
@@ -1078,9 +1065,9 @@ class AppWindow(tk.Tk):
         )
         exit_button.pack(pady=9)
 
-# =========================
+# -----
 # MAIN
-# =========================
+# -----
 
 # Ejecuta la aplicación gráfica principal.
 # Entradas: ninguna.

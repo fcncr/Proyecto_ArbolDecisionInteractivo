@@ -41,7 +41,7 @@
             "no": {
                 "text": "¿Usa calor o fuego para funcionar?",
                 "yes": {
-                    "text": "Globo aerostatico",
+                    "text": "Globo aerostático",
                     "yes": null,
                     "no": null
                 },

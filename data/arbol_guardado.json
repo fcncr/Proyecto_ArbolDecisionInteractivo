@@ -1,44 +1,644 @@
 {
-    "text": "¿Es un animal?",
+    "text": "¿Es un ser vivo?",
     "yes": {
-        "text": "¿Maulla?",
+        "text": "¿Es un animal?",
         "yes": {
-            "text": "¿es salvaje?",
+            "text": "¿Es doméstico?",
             "yes": {
-                "text": "Lobo",
-                "yes": null,
-                "no": null
+                "text": "¿Maúlla?",
+                "yes": {
+                    "text": "gato",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "¿Ladra?",
+                    "yes": {
+                        "text": "perro",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "¿Tiene orejas largas?",
+                        "yes": {
+                            "text": "conejo",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "hámster",
+                            "yes": null,
+                            "no": null
+                        }
+                    }
+                }
             },
             "no": {
-                "text": "Gato",
-                "yes": null,
-                "no": null
+                "text": "¿Vive en el agua?",
+                "yes": {
+                    "text": "¿Es peligroso para humanos?",
+                    "yes": {
+                        "text": "tiburón",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "delfín",
+                        "yes": null,
+                        "no": null
+                    }
+                },
+                "no": {
+                    "text": "¿Tiene rayas?",
+                    "yes": {
+                        "text": "¿Es parecido a un caballo?",
+                        "yes": {
+                            "text": "cebra",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "tigre",
+                            "yes": null,
+                            "no": null
+                        }
+                    },
+                    "no": {
+                        "text": "¿Tiene cuello muy largo?",
+                        "yes": {
+                            "text": "jirafa",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "elefante",
+                            "yes": null,
+                            "no": null
+                        }
+                    }
+                }
             }
         },
         "no": {
-            "text": "perro",
-            "yes": null,
-            "no": null
+            "text": "¿Produce flores visibles?",
+            "yes": {
+                "text": "¿Se regala comúnmente en ramos?",
+                "yes": {
+                    "text": "rosa",
+                    "yes": null,
+                    "no": null
+                },
+                "no": {
+                    "text": "girasol",
+                    "yes": null,
+                    "no": null
+                }
+            },
+            "no": {
+                "text": "¿Es un árbol?",
+                "yes": {
+                    "text": "¿Tiene hojas en forma de aguja?",
+                    "yes": {
+                        "text": "pino",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "roble",
+                        "yes": null,
+                        "no": null
+                    }
+                },
+                "no": {
+                    "text": "¿Es un hongo comestible?",
+                    "yes": {
+                        "text": "champiñón",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "¿Es una fruta?",
+                        "yes": {
+                            "text": "Piña",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "cactus",
+                            "yes": null,
+                            "no": null
+                        }
+                    }
+                }
+            }
         }
     },
     "no": {
-        "text": "Sirve para hacer llamadas?",
+        "text": "¿Es una comida?",
         "yes": {
-            "text": "Telefono",
-            "yes": null,
-            "no": null
-        },
-        "no": {
-            "text": "¿Es barato?",
+            "text": "¿Es dulce?",
             "yes": {
-                "text": "computadora",
-                "yes": null,
-                "no": null
+                "text": "¿Se sirve frío?",
+                "yes": {
+                    "text": "¿Es cremoso?",
+                    "yes": {
+                        "text": "helado",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "gelatina",
+                        "yes": null,
+                        "no": null
+                    }
+                },
+                "no": {
+                    "text": "¿Tiene chocolate?",
+                    "yes": {
+                        "text": "pastel de chocolate",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "galleta",
+                        "yes": null,
+                        "no": null
+                    }
+                }
             },
             "no": {
-                "text": "Servidor",
-                "yes": null,
-                "no": null
+                "text": "¿Es comida rápida?",
+                "yes": {
+                    "text": "¿Tiene pan?",
+                    "yes": {
+                        "text": "hamburguesa",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "¿Tiene tortilla?",
+                        "yes": {
+                            "text": "taco",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "pizza",
+                            "yes": null,
+                            "no": null
+                        }
+                    }
+                },
+                "no": {
+                    "text": "¿Tiene arroz?",
+                    "yes": {
+                        "text": "sushi",
+                        "yes": null,
+                        "no": null
+                    },
+                    "no": {
+                        "text": "¿Se sirve en caldo?",
+                        "yes": {
+                            "text": "sopa",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "ensalada",
+                            "yes": null,
+                            "no": null
+                        }
+                    }
+                }
+            }
+        },
+        "no": {
+            "text": "¿Es un medio de transporte?",
+            "yes": {
+                "text": "¿Se mueve por tierra?",
+                "yes": {
+                    "text": "¿Tiene motor?",
+                    "yes": {
+                        "text": "¿Transporta muchas personas?",
+                        "yes": {
+                            "text": "autobús",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "automóvil",
+                            "yes": null,
+                            "no": null
+                        }
+                    },
+                    "no": {
+                        "text": "¿Tiene dos ruedas?",
+                        "yes": {
+                            "text": "bicicleta",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "patineta",
+                            "yes": null,
+                            "no": null
+                        }
+                    }
+                },
+                "no": {
+                    "text": "¿Se mueve por aire?",
+                    "yes": {
+                        "text": "¿Tiene alas fijas?",
+                        "yes": {
+                            "text": "avión",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "¿Usa hélices visibles?",
+                            "yes": {
+                                "text": "helicóptero",
+                                "yes": null,
+                                "no": null
+                            },
+                            "no": {
+                                "text": "globo aerostático",
+                                "yes": null,
+                                "no": null
+                            }
+                        }
+                    },
+                    "no": {
+                        "text": "¿Se mueve por agua?",
+                        "yes": {
+                            "text": "¿Es grande para pasajeros?",
+                            "yes": {
+                                "text": "barco",
+                                "yes": null,
+                                "no": null
+                            },
+                            "no": {
+                                "text": "lancha",
+                                "yes": null,
+                                "no": null
+                            }
+                        },
+                        "no": {
+                            "text": "¿Viaja bajo tierra?",
+                            "yes": {
+                                "text": "metro",
+                                "yes": null,
+                                "no": null
+                            },
+                            "no": {
+                                "text": "teleférico",
+                                "yes": null,
+                                "no": null
+                            }
+                        }
+                    }
+                }
+            },
+            "no": {
+                "text": "¿Es un objeto tecnológico?",
+                "yes": {
+                    "text": "¿Se usa para comunicarse?",
+                    "yes": {
+                        "text": "¿Cabe en una mano?",
+                        "yes": {
+                            "text": "smartphone",
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "text": "radio",
+                            "yes": null,
+                            "no": null
+                        }
+                    },
+                    "no": {
+                        "text": "¿Se usa para trabajar o estudiar?",
+                        "yes": {
+                            "text": "¿Es portátil?",
+                            "yes": {
+                                "text": "computadora portátil",
+                                "yes": null,
+                                "no": null
+                            },
+                            "no": {
+                                "text": "computadora de escritorio",
+                                "yes": null,
+                                "no": null
+                            }
+                        },
+                        "no": {
+                            "text": "¿Se usa para entretenimiento?",
+                            "yes": {
+                                "text": "¿Sirve para videojuegos?",
+                                "yes": {
+                                    "text": "¿Es un accesorio de una consola?",
+                                    "yes": {
+                                        "text": "Control",
+                                        "yes": null,
+                                        "no": null
+                                    },
+                                    "no": {
+                                        "text": "consola de videojuegos",
+                                        "yes": null,
+                                        "no": null
+                                    }
+                                },
+                                "no": {
+                                    "text": "televisor",
+                                    "yes": null,
+                                    "no": null
+                                }
+                            },
+                            "no": {
+                                "text": "¿Sirve para imprimir?",
+                                "yes": {
+                                    "text": "impresora",
+                                    "yes": null,
+                                    "no": null
+                                },
+                                "no": {
+                                    "text": "cámara",
+                                    "yes": null,
+                                    "no": null
+                                }
+                            }
+                        }
+                    }
+                },
+                "no": {
+                    "text": "¿Es un objeto de uso diario?",
+                    "yes": {
+                        "text": "¿Se usa en la cocina?",
+                        "yes": {
+                            "text": "¿Sirve para cortar?",
+                            "yes": {
+                                "text": "cuchillo",
+                                "yes": null,
+                                "no": null
+                            },
+                            "no": {
+                                "text": "sartén",
+                                "yes": null,
+                                "no": null
+                            }
+                        },
+                        "no": {
+                            "text": "¿Se usa para sentarse?",
+                            "yes": {
+                                "text": "silla",
+                                "yes": null,
+                                "no": null
+                            },
+                            "no": {
+                                "text": "¿Se transporta en la espalda?",
+                                "yes": {
+                                    "text": "mochila",
+                                    "yes": null,
+                                    "no": null
+                                },
+                                "no": {
+                                    "text": "¿Sirve para abrir puertas?",
+                                    "yes": {
+                                        "text": "llave",
+                                        "yes": null,
+                                        "no": null
+                                    },
+                                    "no": {
+                                        "text": "¿Sirve para iluminar?",
+                                        "yes": {
+                                            "text": "lámpara",
+                                            "yes": null,
+                                            "no": null
+                                        },
+                                        "no": {
+                                            "text": "libro",
+                                            "yes": null,
+                                            "no": null
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "no": {
+                        "text": "¿Es un deporte?",
+                        "yes": {
+                            "text": "¿Se juega con balón?",
+                            "yes": {
+                                "text": "¿Se juega principalmente con los pies?",
+                                "yes": {
+                                    "text": "fútbol",
+                                    "yes": null,
+                                    "no": null
+                                },
+                                "no": {
+                                    "text": "¿Se usa una canasta?",
+                                    "yes": {
+                                        "text": "baloncesto",
+                                        "yes": null,
+                                        "no": null
+                                    },
+                                    "no": {
+                                        "text": "¿Se golpea con una raqueta?",
+                                        "yes": {
+                                            "text": "tenis",
+                                            "yes": null,
+                                            "no": null
+                                        },
+                                        "no": {
+                                            "text": "voleibol",
+                                            "yes": null,
+                                            "no": null
+                                        }
+                                    }
+                                }
+                            },
+                            "no": {
+                                "text": "¿Se practica en agua?",
+                                "yes": {
+                                    "text": "¿Implica nadar?",
+                                    "yes": {
+                                        "text": "natación",
+                                        "yes": null,
+                                        "no": null
+                                    },
+                                    "no": {
+                                        "text": "surf",
+                                        "yes": null,
+                                        "no": null
+                                    }
+                                },
+                                "no": {
+                                    "text": "¿Se practica sobre nieve o hielo?",
+                                    "yes": {
+                                        "text": "¿Se usan esquís?",
+                                        "yes": {
+                                            "text": "esquí",
+                                            "yes": null,
+                                            "no": null
+                                        },
+                                        "no": {
+                                            "text": "patinaje sobre hielo",
+                                            "yes": null,
+                                            "no": null
+                                        }
+                                    },
+                                    "no": {
+                                        "text": "¿Se practica con bicicleta?",
+                                        "yes": {
+                                            "text": "ciclismo",
+                                            "yes": null,
+                                            "no": null
+                                        },
+                                        "no": {
+                                            "text": "atletismo",
+                                            "yes": null,
+                                            "no": null
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "no": {
+                            "text": "¿Es un lugar?",
+                            "yes": {
+                                "text": "¿Es un lugar al que vas a estudiar o trabajar?",
+                                "yes": {
+                                    "text": "¿Tiene aulas?",
+                                    "yes": {
+                                        "text": "escuela",
+                                        "yes": null,
+                                        "no": null
+                                    },
+                                    "no": {
+                                        "text": "oficina",
+                                        "yes": null,
+                                        "no": null
+                                    }
+                                },
+                                "no": {
+                                    "text": "¿Es un lugar de atención médica?",
+                                    "yes": {
+                                        "text": "hospital",
+                                        "yes": null,
+                                        "no": null
+                                    },
+                                    "no": {
+                                        "text": "¿Es un lugar al aire libre?",
+                                        "yes": {
+                                            "text": "¿Tiene arena y mar?",
+                                            "yes": {
+                                                "text": "playa",
+                                                "yes": null,
+                                                "no": null
+                                            },
+                                            "no": {
+                                                "text": "parque",
+                                                "yes": null,
+                                                "no": null
+                                            }
+                                        },
+                                        "no": {
+                                            "text": "¿Se paga entrada para ver algo?",
+                                            "yes": {
+                                                "text": "¿Se ven películas?",
+                                                "yes": {
+                                                    "text": "cine",
+                                                    "yes": null,
+                                                    "no": null
+                                                },
+                                                "no": {
+                                                    "text": "museo",
+                                                    "yes": null,
+                                                    "no": null
+                                                }
+                                            },
+                                            "no": {
+                                                "text": "restaurante",
+                                                "yes": null,
+                                                "no": null
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "no": {
+                                "text": "¿Es una actividad artística?",
+                                "yes": {
+                                    "text": "¿Se hace con música?",
+                                    "yes": {
+                                        "text": "¿Se usa la voz?",
+                                        "yes": {
+                                            "text": "canto",
+                                            "yes": null,
+                                            "no": null
+                                        },
+                                        "no": {
+                                            "text": "baile",
+                                            "yes": null,
+                                            "no": null
+                                        }
+                                    },
+                                    "no": {
+                                        "text": "¿Se usan colores?",
+                                        "yes": {
+                                            "text": "pintura",
+                                            "yes": null,
+                                            "no": null
+                                        },
+                                        "no": {
+                                            "text": "dibujo",
+                                            "yes": null,
+                                            "no": null
+                                        }
+                                    }
+                                },
+                                "no": {
+                                    "text": "¿Se hace con una computadora?",
+                                    "yes": {
+                                        "text": "programación",
+                                        "yes": null,
+                                        "no": null
+                                    },
+                                    "no": {
+                                        "text": "¿Se hace leyendo textos?",
+                                        "yes": {
+                                            "text": "lectura",
+                                            "yes": null,
+                                            "no": null
+                                        },
+                                        "no": {
+                                            "text": "¿Es una artista?",
+                                            "yes": {
+                                                "text": "Hatsune Miku",
+                                                "yes": null,
+                                                "no": null
+                                            },
+                                            "no": {
+                                                "text": "¿Es un anime?",
+                                                "yes": {
+                                                    "text": "Chainsaw Man",
+                                                    "yes": null,
+                                                    "no": null
+                                                },
+                                                "no": {
+                                                    "text": "jardinería",
+                                                    "yes": null,
+                                                    "no": null
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
